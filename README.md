@@ -7,3 +7,6 @@ Este repositorio es para realizar las diferentes tareas solicitidas en la unidad
 Para ello se utiliza el programa de *Visual studio code* y la biblioteca de **a.frame**
 Vinculos de las tecnoligas:  
 A.frame(https://aframe.io/)
+####Nuevo doc ecs  
+Agregamos cuerpos geometricos con nuevos comandos 
+
