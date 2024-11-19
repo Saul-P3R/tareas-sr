@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEXTO EN A-FRAME</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-sky color="violet"></a-sky>
+        <a-text 
+        value="ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789.?!/:;,*§£$ø@+°-~#&²'{}[]|`\()=%*µ àâéèëêïîöôùüûÀÂÉÈËÊÏÎÖÔÜÛçÇ€"
+        font="assets/Abecedario/custom-msdf.json"
+        font-image="assets/Abecedario/custom.png"
+        negate="false"
+        scale="2 2 1"
+        position="-2 2 -4">
+    </a-text>
+    <a-entity 
+            text="value:Persona 3 besto juego,\natlus saca remake del 4,\tdeja de explotar al 5; font:assets/Abecedario/custom-msdf.json; fontImage:assets/Abecedario/custom.png; color: black; negate: false;"  
+            scale="2 2 1" 
+            position="0.5 1.5 -2">
+        </a-entity>
+    </a-scene>
+</body>
+</html>
