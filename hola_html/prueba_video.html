@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Video</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script>
+        AFRAME.registerComponent('play-pause', {
+            init: function () {
+                var myVideo = document.querySelector('#video1');
+                var videoControls = document.querySelector('#videoControls');
+
+                this.el.addEventListener('click', function () {
+                    if (myVideo.paused) {
+                        myVideo.play();
+                        videoControls.setAttribute('src', '#pause');
+                    } else {
+                        myVideo.pause();
+                        videoControls.setAttribute('src', '#plei');
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <!-- Actualiza las rutas con la dirección local de tus archivos -->
+            <video id="video1" src="file:///C:/Users/saulc/Documents/tareas-sr/hola_html/assets/video/helldrives.mp4" loop="true"></video>
+            <img id="plei" src="file:///C:/Users/saulc/Documents/tareas-sr/hola_html/assets/plei.png">
+            <img id="pause" src="file:///C:/Users/saulc/Documents/tareas-sr/hola_html/assets/pause.png">
+        </a-assets>
+
+        <a-video src="#video1" autoplay="true" loop="true" width="16" height="9" position="0 2 -5"></a-video>
+
+        <a-image id="videoControls" src="#plei" position="0 1.5 -4" scale="1 1 1" play-pause></a-image>
+
+        <a-camera>
+            <a-cursor 
+                color="red" 
+                fuse="true" 
+                fuse-timeout="1500">
+            </a-cursor>
+        </a-camera>
+    </a-scene>
+</body>
+</html>
