@@ -39,14 +39,14 @@
         <!-- Entorno -->
         <a-entity environment="preset: japan; groundTexture: #texturaSuelo; skyType: gradient; skyColor: #2E2B5F"></a-entity>
 
-        <!-- Figuras geométricas -->
-        <a-box position="0.07114 1 -1.2479" material="src: #texturaSuelo; color: #4A90E2"></a-box>
-        <a-sphere position="-4.4088 1 -3.83169" radius="1.5" color="#FF7F50"></a-sphere>
-        <a-cylinder position="2.83446 1 -5" radius="0.8" height="2" color="#90EE90"></a-cylinder>
+        <!-- Figuras geométricas convertidas a <a-entity> -->
+        <a-entity geometry="primitive: box" position="0.07114 1 -1.2479" material="src: #texturaSuelo; color: #4A90E2"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" position="-4.4088 1 -3.83169" material="color: #FF7F50"></a-entity>
+        <a-entity geometry="primitive: cylinder; radius: 0.8; height: 2" position="2.83446 1 -5" material="color: #90EE90"></a-entity>
 
         <!-- Texto relacionado con el cuento -->
-        <a-text value="Bienvenido de vuelta al jardín de las realidades" position="-3 2 -4" color="#FFFFFF"></a-text>
-        <a-text value="Dime lo que deseas y lo volveré realidad para ti" position="-3 1.5 -4" color="#FFFF00"></a-text>
+        <a-entity text="value: Bienvenido de vuelta al jardín de las realidades; color: #FFFFFF" position="-3 2 -4"></a-entity>
+        <a-entity text="value: Dime lo que deseas y lo volveré realidad para ti; color: #FFFF00" position="-3 1.5 -4"></a-entity>
 
         <!-- Cámara y cursor -->
         <a-camera position="0 1.6 0">
@@ -57,7 +57,7 @@
         <a-entity id="audio-entity" sound="src: #audioPatio; autoplay: false; loop: true; volume: 1.0"></a-entity>
 
         <!-- Video -->
-        <a-video src="#videoExploracion" position="0 1 -8" width="4" height="2.25"></a-video>
+        <a-entity geometry="primitive: plane; width: 4; height: 2.25" position="0 1 -8" material="shader: flat; src: #videoExploracion"></a-entity>
     </a-scene>
 
     <script>
