@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Jardín de las Realidades</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <style>
+        #play-audio {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #play-audio:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón para activar el audio -->
+    <button id="play-audio">Reproducir Audio</button>
+
+    <a-scene>
+        <a-assets>
+            <audio id="audioPatio" src="assets/sonidos/Aria of the Soul - Persona 3 Reload Original Soundtrack.mp3"></audio>
+            <img id="texturaSuelo" src="assets/virtual space.jpg">
+            <video id="videoExploracion" src="assets/videos/neural link.mp4" autoplay loop></video>
+        </a-assets>
+
+        <!-- Entorno -->
+        <a-entity environment="preset: japan; groundTexture: #texturaSuelo; skyType: gradient; skyColor: #2E2B5F"></a-entity>
+
+        <!-- Figuras geométricas convertidas a <a-entity> -->
+        <a-entity geometry="primitive: box" position="0.07114 1 -1.2479" material="src: #texturaSuelo; color: #4A90E2"></a-entity>
+        <a-entity geometry="primitive: sphere; radius: 1.5" position="-4.4088 1 -3.83169" material="color: #FF7F50"></a-entity>
+        <a-entity geometry="primitive: cylinder; radius: 0.8; height: 2" position="2.83446 1 -5" material="color: #90EE90"></a-entity>
+
+        <!-- Texto relacionado con el cuento -->
+        <a-entity text="value: Bienvenido de vuelta al jardín de las realidades; color: #FFFFFF" position="-3 2 -4"></a-entity>
+        <a-entity text="value: Dime lo que deseas y lo volveré realidad para ti; color: #FFFF00" position="-3 1.5 -4"></a-entity>
+
+        <!-- Cámara y cursor -->
+        <a-camera position="0 1.6 0">
+            <a-cursor color="#FFFFFF"></a-cursor>
+        </a-camera>
+
+        <!-- Audio -->
+        <a-entity id="audio-entity" sound="src: #audioPatio; autoplay: false; loop: true; volume: 1.0"></a-entity>
+
+        <!-- Video -->
+        <a-entity geometry="primitive: plane; width: 4; height: 2.25" position="0 1 -8" material="shader: flat; src: #videoExploracion"></a-entity>
+    </a-scene>
+
+    <script>
+        const playButton = document.getElementById('play-audio');
+        const audioEntity = document.getElementById('audio-entity');
+
+        playButton.addEventListener('click', () => {
+            audioEntity.components.sound.playSound();
+            playButton.style.display = 'none'; // Oculta el botón después de activar el audio
+        });
+    </script>
+</body>
+</html>
